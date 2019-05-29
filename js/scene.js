@@ -1,4 +1,4 @@
-﻿//var data;
+//var data;
 var player1;
 var player2;
 var canvas;
@@ -27,8 +27,19 @@ function createMultiplayerScene(color) {
     ground.material.diffuseColor = new BABYLON.Color3(0.529, 0.808, 0.922)
     ground.material.specularColor = new BABYLON.Color3(0, 0, 0)
     ground.position.y = -2;
-
+    //====================================================
+                // Default Environment
+            var environment = scene.createDefaultEnvironment({ enableGroundShadow: true, groundYBias: 1 });
+            environment.setMainColor(BABYLON.Color3.FromHexString("#74b9ff"))
+    //=====================================================
     var border = createBorder(scene);
+
+//===================================
+// Enable VR
+            //var vrHelper = scene.createDefaultVRExperience	//({createDeviceOrientationCamera:false});
+            //vrHelper.enableTeleportation({floorMeshes: //environment.ground]});
+        
+//===================================
     //KEYS
     var turnLeft = false;
     var turnRight = false;
@@ -78,6 +89,14 @@ function createMultiplayerScene(color) {
             stp = false;
         }
     });
+
+//===================================
+// Enable VR
+     var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+     vrHelper.enableTeleportation({floorMeshes: //environment.ground]});
+        
+//===================================
+
 
     var speed = 0;
     scene.registerBeforeRender(function () {
