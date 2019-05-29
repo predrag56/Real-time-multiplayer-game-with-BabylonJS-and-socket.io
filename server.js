@@ -15,10 +15,12 @@ app.get('/',function(req,res){
     res.sendFile(__dirname+'/index.html');
 });
 
-server.lastPlayderID = 0;
+//server.lastPlayderID = 0;
 
-server.listen(process.env.PORT || 8081,function(){
-    console.log('Listening on '+server.address().port);
+server.listen(process.env.PORT || 8001,function(){
+   var host = server.address().address
+   var port = server.address().port
+   console.log('Listening on '+server.address().port);
 //===========================================
 var roomQueue = [];     
 var roomQueueFull = [];
@@ -106,5 +108,6 @@ server.listen(8001, 'localhost', function () {
     console.log("\nServer running http://%s:%s", host, port)
 });
 */
-
+//server.listen(process.env.PORT || 8001,function(){
+    //console.log('Listening on '+server.address().port);
 
