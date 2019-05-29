@@ -36,8 +36,8 @@ function createMultiplayerScene(color) {
 
 //===================================
 // Enable VR
-            //var vrHelper = scene.createDefaultVRExperience	//({createDeviceOrientationCamera:false});
-            //vrHelper.enableTeleportation({floorMeshes: //environment.ground]});
+            var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+            vrHelper.enableTeleportation({floorMeshes:environment.ground]});
         
 //===================================
     //KEYS
@@ -92,7 +92,7 @@ function createMultiplayerScene(color) {
 
 //===================================
 // Enable VR
-     var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+     ////var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
      //vrHelper.enableTeleportation({floorMeshes: environment.ground]});
         
 //===================================
