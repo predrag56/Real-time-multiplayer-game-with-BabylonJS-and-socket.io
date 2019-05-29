@@ -129,7 +129,7 @@ function createMultiplayerScene(color) {
                     z: -player1.position.z,
                     speed: speed,
                     left: turnLeft,
-                    right: turnRight,
+                    right: turnRight  //, novo
                 }
                 socket.emit('sendUpdate', coord);
             }
