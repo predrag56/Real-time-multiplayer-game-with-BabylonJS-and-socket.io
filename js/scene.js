@@ -29,7 +29,7 @@ function createMultiplayerScene(color) {
     ground.position.y = -2;
     //====================================================
                 // Default Environment
-            var environment = scene.createDefaultEnvironment({ enableGroundShadow: true, groundYBias: 1 });
+            //var environment = scene.createDefaultEnvironment({ enableGroundShadow: true, groundYBias: 1 });
             //environment.setMainColor(BABYLON.Color3.FromHexString("#74b9ff"))
     //=====================================================
     var border = createBorder(scene);
