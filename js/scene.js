@@ -1,4 +1,4 @@
-//var data;
+﻿//var data;
 var player1;
 var player2;
 var canvas;
@@ -24,22 +24,11 @@ function createMultiplayerScene(color) {
 
     var ground = BABYLON.Mesh.CreateGround("ground", 1000, 1000, 1, scene, false);
     ground.material = new BABYLON.StandardMaterial("ground", scene);
-    ground.material.diffuseColor = new BABYLON.Color3(0.529, 0.808, 0.922) //; //novo
-    ground.material.specularColor = new BABYLON.Color3(0, 0, 0) //; //novo
+    ground.material.diffuseColor = new BABYLON.Color3(0.529, 0.808, 0.922)
+    ground.material.specularColor = new BABYLON.Color3(0, 0, 0)
     ground.position.y = -2;
-    //====================================================
-                // Default Environment
-            //var environment = scene.createDefaultEnvironment({ enableGroundShadow: true, groundYBias: 1 });
-            //environment.setMainColor(BABYLON.Color3.FromHexString("#74b9ff")) //; //novo
-    //=====================================================
-    var border = createBorder(scene);
 
-//===================================
-// Enable VR
-            //var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
-            //vrHelper.enableTeleportation({floorMeshes:[environment.ground]});
-        
-//===================================
+    var border = createBorder(scene);
     //KEYS
     var turnLeft = false;
     var turnRight = false;
@@ -90,14 +79,6 @@ function createMultiplayerScene(color) {
         }
     });
 
-//===================================
-// Enable VR
-     var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
-     //vrHelper.enableTeleportation({floorMeshes: environment.ground]});
-        
-//===================================
-
-
     var speed = 0;
     scene.registerBeforeRender(function () {
         if (scene.isReady()) {
@@ -129,7 +110,7 @@ function createMultiplayerScene(color) {
                     z: -player1.position.z,
                     speed: speed,
                     left: turnLeft,
-                    right: turnRight  //, novo
+                    right: turnRight,
                 }
                 socket.emit('sendUpdate', coord);
             }
