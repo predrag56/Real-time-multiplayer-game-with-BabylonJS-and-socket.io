@@ -21,6 +21,7 @@ server.listen(process.env.PORT || 8001,function(){
    //var host = server.address().address
    //var port = server.address().port
    console.log('Listening on '+server.address().port);
+});  
 //===========================================
 var roomQueue = [];     
 var roomQueueFull = [];
