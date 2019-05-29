@@ -3,8 +3,23 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
-app.use(express.static(__dirname + '/'));
 
+
+app.use(express.static(__dirname + '/'));
+//=========================================
+app.use('/style',express.static(__dirname + '/style'));
+app.use('/js',express.static(__dirname + '/js'));
+//app.use('/assets',express.static(__dirname + '/assets'));
+
+app.get('/',function(req,res){
+    res.sendFile(__dirname+'/index.html');
+});
+
+server.lastPlayderID = 0;
+
+server.listen(process.env.PORT || 8081,function(){
+    console.log('Listening on '+server.address().port);
+//===========================================
 var roomQueue = [];     
 var roomQueueFull = [];
 var counterRooms = 0;
@@ -84,9 +99,12 @@ io.on('connection', function (socket) {
         socket.broadcast.to(roomClientRemoved).emit('bye', "");
     });
 });
-
+/*
 server.listen(8001, 'localhost', function () {
     var host = server.address().address
     var port = server.address().port
     console.log("\nServer running http://%s:%s", host, port)
 });
+*/
+
+
