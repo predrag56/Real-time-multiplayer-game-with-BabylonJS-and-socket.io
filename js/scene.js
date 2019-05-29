@@ -37,7 +37,7 @@ function createMultiplayerScene(color) {
 //===================================
 // Enable VR
             var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
-            vrHelper.enableTeleportation({floorMeshes:[environment.ground]});
+            //vrHelper.enableTeleportation({floorMeshes:[environment.ground]});
         
 //===================================
     //KEYS
