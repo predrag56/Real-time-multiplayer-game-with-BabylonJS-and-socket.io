@@ -29,8 +29,8 @@ function createMultiplayerScene(color) {
     ground.position.y = -2;
     //====================================================
                 // Default Environment
-            //var environment = scene.createDefaultEnvironment({ enableGroundShadow: true, groundYBias: 1 });
-            //environment.setMainColor(BABYLON.Color3.FromHexString("#74b9ff"))
+            var environment = scene.createDefaultEnvironment({ enableGroundShadow: true, groundYBias: 1 });
+            environment.setMainColor(BABYLON.Color3.FromHexString("#74b9ff"))
     //=====================================================
     var border = createBorder(scene);
 
@@ -93,7 +93,7 @@ function createMultiplayerScene(color) {
 //===================================
 // Enable VR
      var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
-     //vrHelper.enableTeleportation({floorMeshes: //environment.ground]});
+     vrHelper.enableTeleportation({floorMeshes: environment.ground]});
         
 //===================================
 
