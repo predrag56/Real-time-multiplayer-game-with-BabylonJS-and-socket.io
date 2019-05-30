@@ -14,13 +14,16 @@ function createMultiplayerScene(color) {
     engine = new BABYLON.Engine(canvas, true);
     scene = new BABYLON.Scene(engine);
     //===========
-    var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+    //var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
     //===========
 
     player1 = createPlayer(scene, color, null);
 
     var camera = getFollowCamera(scene, player1);
     camera.attachControl(canvas, true);
+    //===========
+    var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+    //===========
 
     var light = new BABYLON.DirectionalLight("Dir0", new BABYLON.Vector3(0, -1, 0), scene);
 
