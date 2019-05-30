@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/d3llafr33/Real-time-multiplayer-game-with-BabylonJS-and-socket.io"
+    "url": "https://github.com/predrag56/Real-time-multiplayer-game-with-BabylonJS-and-socket.io/blob/master/index.html"
   },
   "keywords": [
     "realtime",
@@ -16,14 +16,14 @@
     "BabylonJS",
     "3D",
     "Game",
-	"Multiplayer",
+    "Multiplayer",
     "socket.io",
     "NodeJS",
     "HTML5",
     "javascript"
   ],
-   "dependencies": {
-    "express": "4.14.x",
+  "dependencies": {
+    "express": "^4.17.1",
     "socket.io": "1.4.x"
   },
   "engines": {
