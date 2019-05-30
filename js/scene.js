@@ -117,9 +117,7 @@ function createMultiplayerScene(color) {
             }
         }
     });
-    //===========
-    if( !player2) {var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});}
-    //===========
+    
     return scene;
 }
  
@@ -130,6 +128,9 @@ function startBabylonEngine(color) {
         scene.executeWhenReady(function () {
             engine.runRenderLoop(function () {
                 engine.hideLoadingUI();
+                //===========
+                var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+                //===========
                 scene.render();
             });
         });
