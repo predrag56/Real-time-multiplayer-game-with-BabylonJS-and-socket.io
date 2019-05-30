@@ -118,7 +118,7 @@ function createMultiplayerScene(color) {
         }
     });
     //===========
-    var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+    if( !player2) {var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});}
     //===========
     return scene;
 }
