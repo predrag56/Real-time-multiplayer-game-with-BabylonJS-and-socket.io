@@ -80,6 +80,9 @@ function createMultiplayerScene(color) {
     });
 
     var speed = 0;
+    //===========
+    var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+    //===========
     scene.registerBeforeRender(function () {
         if (scene.isReady()) {
             if (go && speed < 1) {
