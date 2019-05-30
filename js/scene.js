@@ -13,6 +13,9 @@ function createMultiplayerScene(color) {
     canvas = document.getElementById("multiplayerCanvas");
     engine = new BABYLON.Engine(canvas, true);
     scene = new BABYLON.Scene(engine);
+    //===========
+    var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+    //===========
 
     player1 = createPlayer(scene, color, null);
 
@@ -128,9 +131,7 @@ function startBabylonEngine(color) {
         scene.executeWhenReady(function () {
             engine.runRenderLoop(function () {
                 engine.hideLoadingUI();
-                //===========
-                var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
-                //===========
+               
                 scene.render();
             });
         });
