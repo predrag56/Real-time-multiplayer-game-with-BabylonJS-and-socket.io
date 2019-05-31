@@ -1,4 +1,4 @@
-﻿//var data;
+//var data;
 var player1;
 var player2;
 var canvas;
@@ -13,28 +13,33 @@ function createMultiplayerScene(color) {
     canvas = document.getElementById("multiplayerCanvas");
     engine = new BABYLON.Engine(canvas, true);
     scene = new BABYLON.Scene(engine);
-    //===========
-    //var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
-    //===========
 
     player1 = createPlayer(scene, color, null);
 
     var camera = getFollowCamera(scene, player1);
     camera.attachControl(canvas, true);
-    //===========
-    var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
-    //===========
 
     var light = new BABYLON.DirectionalLight("Dir0", new BABYLON.Vector3(0, -1, 0), scene);
 
 
     var ground = BABYLON.Mesh.CreateGround("ground", 1000, 1000, 1, scene, false);
     ground.material = new BABYLON.StandardMaterial("ground", scene);
-    ground.material.diffuseColor = new BABYLON.Color3(0.529, 0.808, 0.922)
-    ground.material.specularColor = new BABYLON.Color3(0, 0, 0)
+    ground.material.diffuseColor = new BABYLON.Color3(0.529, 0.808, 0.922) //; //novo
+    ground.material.specularColor = new BABYLON.Color3(0, 0, 0) //; //novo
     ground.position.y = -2;
-
+    //====================================================
+                // Default Environment
+            var environment = scene.createDefaultEnvironment({ enableGroundShadow: true, groundYBias: 1 });
+            environment.setMainColor(BABYLON.Color3.FromHexString("#74b9ff")) //; //novo
+    //=====================================================
     var border = createBorder(scene);
+
+//===================================
+// Enable VR
+            var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+            vrHelper.enableTeleportation({floorMeshes:[environment.ground]});
+        
+//===================================
     //KEYS
     var turnLeft = false;
     var turnRight = false;
@@ -85,8 +90,15 @@ function createMultiplayerScene(color) {
         }
     });
 
+//===================================
+// Enable VR
+     //var vrHelper = scene.createDefaultVRExperience({createDeviceOrientationCamera:false});
+     //vrHelper.enableTeleportation({floorMeshes: environment.ground]});
+        
+//===================================
+
+
     var speed = 0;
-  
     scene.registerBeforeRender(function () {
         if (scene.isReady()) {
             if (go && speed < 1) {
@@ -117,13 +129,12 @@ function createMultiplayerScene(color) {
                     z: -player1.position.z,
                     speed: speed,
                     left: turnLeft,
-                    right: turnRight,
+                    right: turnRight  //, novo
                 }
                 socket.emit('sendUpdate', coord);
             }
         }
     });
-    
     return scene;
 }
  
@@ -134,7 +145,6 @@ function startBabylonEngine(color) {
         scene.executeWhenReady(function () {
             engine.runRenderLoop(function () {
                 engine.hideLoadingUI();
-               
                 scene.render();
             });
         });

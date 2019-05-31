@@ -3,7 +3,7 @@
     camera.heightOffset = 30;       
     camera.radius = 80;             
     camera.rotationOffset = 90;     
-    camera.cameraAcceleration = 0.05 
+    camera.cameraAcceleration = 0.05 //; //novo 
     camera.target = target;
     return camera;
 };
@@ -47,10 +47,10 @@ function createPlayer(scene, color, data) {
         tunk.position.y = -1;
         tunk.position.x = 400;
         tunk.position.z = 0;
-        tunk.rotation.y = 0
+        tunk.rotation.y = 0 //;    //novo
     }
 
-    tunk.scaling = new BABYLON.Vector3(0.5, 0.5, 0.5)
+    tunk.scaling = new BABYLON.Vector3(0.5, 0.5, 0.5) //; //novo
     tunk.layerMask = 2;
     return tunk;
 };
@@ -65,16 +65,16 @@ function gameOver(result) {
 function createBorder(scene) {
     var meshes = [];
     var box = BABYLON.Mesh.CreateBox("box", 10.0, scene);
-    box.scaling.x = 0.2
-    box.scaling.z = 100
-    box.position.x = 500
+    box.scaling.x = 0.2 //;        //novo
+    box.scaling.z = 100 //;        //novo
+    box.position.x = 500 //;       //novo
 
     box2 = box.clone();
-    box2.position.x = -box.position.x
+    box2.position.x = -box.position.x;  //novo
 
     box3 = box.clone();
-    box3.rotation.y = Math.PI / 2
-    box3.position.x = 0
+    box3.rotation.y = Math.PI / 2 //;  //novo
+    box3.position.x = 0 //;            //novo
     box3.position.z = 499, 5;
 
     box4 = box3.clone();
@@ -87,7 +87,7 @@ function createBorder(scene) {
 
     var border = BABYLON.Mesh.MergeMeshes(meshes);
     border.material = new BABYLON.StandardMaterial("ground", scene);
-    border.material.diffuseColor = new BABYLON.Color3(0.529, 0.808, 0.922)
-    border.material.specularColor = new BABYLON.Color3(0, 0, 0)
+    border.material.diffuseColor = new BABYLON.Color3(0.529, 0.808, 0.922) //; //novo
+    border.material.specularColor = new BABYLON.Color3(0, 0, 0) //;            //novo
     return border;
 }
